@@ -7,13 +7,13 @@ import org.junit.Test;
 public class BinarySearchTests {
 	
 	@Test
-	public void searchingForKeyNotInArrayIsMinusTwo() {
-		assertEquals(-2, binarySearch(new int[]{0}, 1));
+	public void searchingForKeyNotInArrayIsMinusOne() {
+		assertEquals(-1, binarySearch(new int[]{0}, 1));
 	}
 	
 	@Test
-	public void searchingForKeyNotInLargerArrayIsMinusFour() {
-		assertEquals(-4, binarySearch(new int[] {1, 2, 3}, 7));
+	public void searchingForKeyNotInLargerArrayIsMinusOne() {
+		assertEquals(-1, binarySearch(new int[] {1, 2, 3}, 7));
 	}
 	
 	@Test
@@ -37,8 +37,16 @@ public class BinarySearchTests {
 		assertEquals(0, binarySearch(new int[] {1, 2, 3}, 1));
 	}
 
+	@Test
+	public void smokeTestsForBinarySearch() throws Exception {
+		int [] arrayWith42 = new int[] { 1, 4, 42, 55, 67, 87, 100, 245 };
+		assertEquals(2, binarySearch(arrayWith42, 42));
+		assertEquals(-1, binarySearch(arrayWith42, 43));
+	}
+	
 	protected int binarySearch(int[] a, int key) {
-		return new BinarySearch().binarySearch(a, key);
+		new BinarySearch();
+		return BinarySearch.binarySearch(a, key);
 	}
 	
 
