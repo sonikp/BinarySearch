@@ -27,5 +27,25 @@ Submit your Java JUnit text, and an explanation of what the error is in the comm
      }
 
 
+Hints from class:
+
+- experiment with heapsize parameters <= hint
+- look into integer overflow
+  
+  
+- test for min/max inter val
+- test boundary: 1st, last, mid
+- test midpoint test
+  
+- sum overflow that happens
+- calculate midpoint given high/low
+- test boundary with size = 1
+- test empty array
+- test basic smoke test: binary search, assert = to find key
+  
+- problem has to do with midpoint high + low / 2
+  
+  
+
 Research:
 https://research.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html

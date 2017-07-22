@@ -7,7 +7,7 @@ public class BinarySearch {
 		int high = a.length - 1;
 		
 		while (low <= high ){
-			int mid = (low + high) / 2;
+			int mid = (low + high) / 2;		// this is where the error occurs
 			int midVal = a[mid];
 			
 			if (midVal < key)
