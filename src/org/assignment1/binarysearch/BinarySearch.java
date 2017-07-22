@@ -7,7 +7,8 @@ public class BinarySearch {
 		int high = a.length - 1;
 		
 		while (low <= high ){
-			int mid = (low + high) / 2;		// this is where the error occurs
+//			int mid = (low + high) / 2;		// replaced this line of code for testing this specific point of failure
+			int mid = calculateMidpoint(low, high);
 			int midVal = a[mid];
 			
 			if (midVal < key)
@@ -19,6 +20,11 @@ public class BinarySearch {
 		}
 //		return -(low + 1);  // key not found.  !! original provided in class, but returns different value for testing. 
 		return -1;			// changed so JUnit always returns same value when running tests
+	}
+	
+	public static int calculateMidpoint(int low, int high) {
+//		return (low + high) >>> 1;
+		return (low + high) / 2;
 	}
 	
 }
