@@ -8,7 +8,7 @@ public class BinarySearchTests {
 	
 	
 	int[] testArray;
-	
+	/*
 	@Before
 	// Set up for testing before testing begins, none needed for these test cases
 	
@@ -95,7 +95,7 @@ public class BinarySearchTests {
 	}
 	
 	@Test(expected=AssertionError.class)
-	public void calculateMidpointWithBoundaryValues() throws Exception {
+	public void calculateMidpointWithBoundaryValuesWithBug() throws Exception {
 		assertEquals(0, calculateMidpointContainingBug(0,1));
 		assertEquals(1, calculateMidpointContainingBug(0,2));
 		assertEquals(1200000000, calculateMidpointContainingBug (1100000000, 1300000000));		
@@ -119,6 +119,15 @@ public class BinarySearchTests {
 		assertEquals(1200000000, calculateMidpointFixShiftSignBit (1100000000, 1300000000));		
 		assertEquals(Integer.MAX_VALUE - 2, calculateMidpointFixShiftSignBit(Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
 		assertEquals(Integer.MAX_VALUE - 1, calculateMidpointFixShiftSignBit(Integer.MAX_VALUE-1, Integer.MAX_VALUE));
+	}
+	*/
+	@Test
+	public void testForBeyondMinAndMaxInteger() throws Exception {
+		int max = Integer.MAX_VALUE;
+		int min = Integer.MIN_VALUE;
+		testArray = new int[] { (min - 1), -324, -3, -1, 0, 42, 99, 101, max + 1 };
+		assertEquals(0, binarySearch(testArray, (min - 1) ) );
+//		assertEquals(8, binarySearch(testArray, Integer.MAX_VALUE));
 	}
 	
 
