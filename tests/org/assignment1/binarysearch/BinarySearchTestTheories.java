@@ -12,9 +12,9 @@ import java.util.Random;
 public class BinarySearchTestTheories {
 	
 	Random rand;
-	int maxArraySize = 10;
+	int maxArraySize = Integer.MAX_VALUE / 2;
 	int maxValue = Integer.MAX_VALUE;
-	int experiments = 10;	// 1000
+	int experiments = 2;	// 1000
 	int[] testArray;
 	int target;
 	int returnValue;
@@ -49,7 +49,7 @@ public class BinarySearchTestTheories {
 			System.out.println("returnValue " + returnValue);
 			experiments--;
 		}
-		
+		System.out.println(".....completed!");
 	}
 	
 	public void assertTheory1(int[] testArray, int target, int returnValue) {
