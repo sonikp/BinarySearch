@@ -33,7 +33,7 @@ Hints from class:
 - look into integer overflow
   
   
-- test for min/max inter val
+- test for min/max/mid value
 - test boundary: 1st, last, mid
 - test midpoint test
   

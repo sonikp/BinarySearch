@@ -21,9 +21,9 @@ public class BinarySearchTestTheories {
 	@Test
 	public void testTheories() throws Exception {
 		
-		int maxArraySize = 1000;
-		int maxValue = 1000;
-		int experiments = 1000;
+		int maxArraySize = 10;
+		int maxValue = 100;
+		int experiments = 1;	// 1000
 		int[] testArray;
 		int target;
 		int returnValue;
