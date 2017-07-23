@@ -1,11 +1,7 @@
 package org.assignment1.binarysearch;
 
 import static org.junit.Assert.*;
-
 import org.junit.Before;
-
-//import java.util.Random;
-
 import org.junit.Test;
 
 public class BinarySearchTests {
@@ -14,7 +10,7 @@ public class BinarySearchTests {
 	int[] testArray;
 	
 	@Before
-	// Set up for testing before testing beginns
+	// Set up for testing before testing begins, none needed for these test cases
 	
 	@Test
 	public void searchingForKeyNotInArrayIsMinusOne() {
@@ -75,14 +71,7 @@ public class BinarySearchTests {
 	}
 	
 	
-	@Test
-	public void calculateMidpointWithBoundaryValues() throws Exception {
-		assertEquals(0, calculateMidpoint(0,1));
-		assertEquals(1, calculateMidpoint(0,2));
-		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));		
-		assertEquals(Integer.MAX_VALUE - 2, calculateMidpoint (Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
-		assertEquals(Integer.MAX_VALUE - 1, calculateMidpoint (Integer.MAX_VALUE-1, Integer.MAX_VALUE));
-	}
+
 	
 	@Test
 	public void testBoundaryCasesForItemLocation() throws Exception {
@@ -99,14 +88,55 @@ public class BinarySearchTests {
 		assertEquals(8, binarySearch(testArray, Integer.MAX_VALUE));
 	}
 	
+	@Test(expected=NumberFormatException.class)
+	public void testForNullKeyValue() throws Exception {
+		testArray = new int[] { Integer.MIN_VALUE, -324, -3, -1, 0, 42, 99, 101, Integer.MAX_VALUE };
+		assertEquals(0, binarySearch(testArray, Integer.valueOf(null)));
+	}
+	
+	@Test(expected=AssertionError.class)
+	public void calculateMidpointWithBoundaryValues() throws Exception {
+		assertEquals(0, calculateMidpointContainingBug(0,1));
+		assertEquals(1, calculateMidpointContainingBug(0,2));
+		assertEquals(1200000000, calculateMidpointContainingBug (1100000000, 1300000000));		
+		assertEquals(Integer.MAX_VALUE - 2, calculateMidpointContainingBug(Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
+		assertEquals(Integer.MAX_VALUE - 1, calculateMidpointContainingBug(Integer.MAX_VALUE-1, Integer.MAX_VALUE));
+	}
+	
+	@Test
+	public void calculateMidpointFixSubtractLowFromHighWithBoundaryValues() throws Exception {
+		assertEquals(0, calculateMidpointFixSubtractLowFromHigh(0,1));
+		assertEquals(1, calculateMidpointFixSubtractLowFromHigh(0,2));
+		assertEquals(1200000000, calculateMidpointFixSubtractLowFromHigh (1100000000, 1300000000));		
+		assertEquals(Integer.MAX_VALUE - 2, calculateMidpointFixSubtractLowFromHigh(Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
+		assertEquals(Integer.MAX_VALUE - 1, calculateMidpointFixSubtractLowFromHigh(Integer.MAX_VALUE-1, Integer.MAX_VALUE));
+	}
+	
+	@Test
+	public void calculateMidpointFixShiftSignBitWithBoundaryValues() throws Exception {
+		assertEquals(0, calculateMidpointFixShiftSignBit(0,1));
+		assertEquals(1, calculateMidpointFixShiftSignBit(0,2));
+		assertEquals(1200000000, calculateMidpointFixShiftSignBit (1100000000, 1300000000));		
+		assertEquals(Integer.MAX_VALUE - 2, calculateMidpointFixShiftSignBit(Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
+		assertEquals(Integer.MAX_VALUE - 1, calculateMidpointFixShiftSignBit(Integer.MAX_VALUE-1, Integer.MAX_VALUE));
+	}
+	
 
 	
 	protected int binarySearch(int[] a, int key) {
 		return BinarySearch.binarySearch(a, key);
 	}
 	
-	protected int calculateMidpoint(int low, int high) {
-		return BinarySearch.calculateMidpoint(low, high);
+	protected int calculateMidpointContainingBug(int low, int high) {
+		return BinarySearch.calculateMidpointContainingBug(low, high);
+	}
+	
+	protected int calculateMidpointFixSubtractLowFromHigh(int low, int high) {
+		return BinarySearch.calculateMidpointFixSubtractLowFromHigh(low, high);
+	}
+	
+	protected int calculateMidpointFixShiftSignBit(int low, int high) {
+		return BinarySearch.calculateMidpointFixShiftSignBit(low, high);
 	}
 	
 	
