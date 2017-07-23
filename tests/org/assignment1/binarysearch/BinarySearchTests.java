@@ -2,6 +2,8 @@ package org.assignment1.binarysearch;
 
 import static org.junit.Assert.*;
 
+//import java.util.Random;
+
 import org.junit.Test;
 
 public class BinarySearchTests {
@@ -67,11 +69,28 @@ public class BinarySearchTests {
 	public void calculateMidpointWithBoundaryValues() throws Exception {
 		assertEquals(0, calculateMidpoint(0,1));
 		assertEquals(1, calculateMidpoint(0,2));
-		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));
-//		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));		
-//		assertEquals(Integer.MAX_VALUE - 2, calculateMidpoint (Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
-//		assertEquals(Integer.MAX_VALUE - 1, calculateMidpoint (Integer.MAX_VALUE-1, Integer.MAX_VALUE));
+//		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));
+		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));		
+		assertEquals(Integer.MAX_VALUE - 2, calculateMidpoint (Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
+		assertEquals(Integer.MAX_VALUE - 1, calculateMidpoint (Integer.MAX_VALUE-1, Integer.MAX_VALUE));
 	}
+	
+	@Test
+	public void testBoundaryCasesForItemLocation() throws Exception {
+		testArray = new int[] { -324, -3, -1, 0, 42, 99, 101 };
+		assertEquals(0, binarySearch(testArray, -324));
+		assertEquals(3, binarySearch(testArray, 0));
+		assertEquals(6, binarySearch(testArray, 101));
+	}
+	
+	@Test
+	public void testForMinAndMaxInteger() throws Exception {
+		testArray = new int[] { Integer.MIN_VALUE, -324, -3, -1, 0, 42, 99, 101, Integer.MAX_VALUE };
+		assertEquals(0, binarySearch(testArray, Integer.MIN_VALUE));
+		assertEquals(8, binarySearch(testArray, Integer.MAX_VALUE));
+	}
+	
+
 	
 	protected int binarySearch(int[] a, int key) {
 		return BinarySearch.binarySearch(a, key);
@@ -80,6 +99,8 @@ public class BinarySearchTests {
 	protected int calculateMidpoint(int low, int high) {
 		return BinarySearch.calculateMidpoint(low, high);
 	}
+	
+	
 	
 
 

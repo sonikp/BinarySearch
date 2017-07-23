@@ -23,8 +23,10 @@ public class BinarySearch {
 	}
 	
 	public static int calculateMidpoint(int low, int high) {
-//		return (low + high) >>> 1;
-		return (low + high) / 2;
+//		return (low + high) / 2;		// code that fails 2^31 is causes the counter to roll-over to a -ve integer
+		return low + ((high - low) / 2);// keeps the addition of the high/low under the Integer.MAX_VALUE 
+//		return (low + high) >>> 1;		// uses the unused sign-bit to perform a correct average of non-negative numbers
+
 	}
 	
 }
