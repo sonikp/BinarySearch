@@ -45,7 +45,7 @@ Hints from class:
   
 - problem has to do with midpoint high + low / 2
   
-  
+ - test for exceptions
 
 Research:
 https://research.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html

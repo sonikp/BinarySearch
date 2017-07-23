@@ -2,27 +2,37 @@ package org.assignment1.binarysearch;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
+
 //import java.util.Random;
 
 import org.junit.Test;
 
 public class BinarySearchTests {
 	
+	
 	int[] testArray;
-	/*
+	
+	@Before
+	// Set up for testing before testing beginns
+	
 	@Test
 	public void searchingForKeyNotInArrayIsMinusOne() {
 		assertEquals(-1, binarySearch(new int[]{0}, 1));
+		// asserts that search for a non-existent key value in a small array returns -1 (not found response)
 	}
 	
 	@Test
 	public void searchingForKeyNotInLargerArrayIsMinusOne() {
 		assertEquals(-1, binarySearch(new int[] {1, 2, 3}, 7));
+		// asserts that search for a non-existent key value in a 3 item array returns -1 (not found response)
 	}
 	
 	@Test
 	public void searchingForKeyPresentInArrayLengthOneIsZero() throws Exception {
 		assertEquals(0, binarySearch(new int[]{1}, 1));
+		// asserts that search for the key value 1, in a array with one item, correctly returns the correct
+		// location in the array, first location = 0
 	}
 	
 	@Test
@@ -40,9 +50,9 @@ public class BinarySearchTests {
 	public void searchingForKeyThatIsMidpointOfLowerHalfOfArrayLengthThreeIsZero() throws Exception {
 		assertEquals(0, binarySearch(new int[] {1, 2, 3}, 1));
 	}
-	*/
 	
-	/*
+	
+	
 	@Test
 	public void smokeTestsForBinarySearch() throws Exception {
 		int[] arrayWith42 = new int[] { 1, 4, 42, 55, 67, 87, 100, 245 };
@@ -63,13 +73,12 @@ public class BinarySearchTests {
 		assertEquals(0, binarySearch(testArray, 42));
 		assertEquals(-1, binarySearch(testArray, 43));
 	}
-	*/
+	
 	
 	@Test
 	public void calculateMidpointWithBoundaryValues() throws Exception {
 		assertEquals(0, calculateMidpoint(0,1));
 		assertEquals(1, calculateMidpoint(0,2));
-//		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));
 		assertEquals(1200000000, calculateMidpoint (1100000000, 1300000000));		
 		assertEquals(Integer.MAX_VALUE - 2, calculateMidpoint (Integer.MAX_VALUE-2, Integer.MAX_VALUE-1));
 		assertEquals(Integer.MAX_VALUE - 1, calculateMidpoint (Integer.MAX_VALUE-1, Integer.MAX_VALUE));
