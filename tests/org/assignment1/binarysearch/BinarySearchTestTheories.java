@@ -26,11 +26,11 @@ import java.util.Random;
 public class BinarySearchTestTheories {
 	
 	Random rand;
-	int maxArraySize = Integer.MAX_VALUE / 2;
-	int maxValue = Integer.MAX_VALUE;
-	int experiments = 2;	// 1000
+	int maxArraySize = 100; // Integer.MAX_VALUE / 2;
+	int maxValue = 100; // Integer.MAX_VALUE;
+	int experiments = 10;	// 1000
 	int[] testArray;
-	int target;
+	int key;
 	int returnValue;
 	
 	/**
@@ -60,40 +60,47 @@ public class BinarySearchTestTheories {
 			boolean randomBoolean = rand.nextBoolean();
 			System.out.println("randomBoolean " + randomBoolean);
 			if (randomBoolean) {
-				target = testArray[rand.nextInt(testArray.length)];
-				System.out.println("target " + target);
+				key = testArray[rand.nextInt(testArray.length)];
+				System.out.println("key " + key);
 			}
 			else {
-				target = rand.nextInt();
-				System.out.println("target " + target);
+				key = rand.nextInt();
+				System.out.println("key " + key);
 			}
-			returnValue = BinarySearch.binarySearch(testArray, target);
-			assertTheory1(testArray, target, returnValue);
-			assertTheory2(testArray, target, returnValue);
+			returnValue = BinarySearch.binarySearch(testArray, key);
+			System.out.println("returnValue " + returnValue);
+			assertTheory1(testArray, key, returnValue);
+			assertTheory2(testArray, key, returnValue);
 			System.out.println("returnValue " + returnValue);
 			experiments--;
 		}
 		System.out.println(".....completed!");
 	}
 	
-	public void assertTheory1(int[] testArray, int target, int returnValue) {
+	/**
+	 * Asserts that search for the key value in array that does not exist, returns location = 1
+	 */
+	public void assertTheory1(int[] testArray, int key, int returnValue) {
 		System.out.println("Enter assertTheory1");
 		if (returnValue == -1 ) {
-			assertFalse(arrayContainsTarget(testArray, target));
+			assertFalse(arrayContainsTarget(testArray, key));
 		}
 	}
 	
-	public void assertTheory2(int[] testArray, int target, int returnValue) {
+	/**
+	 * Asserts that search for the key value in array that does exist, returns location of key value
+	 */
+	public void assertTheory2(int[] testArray, int key, int returnValue) {
 		System.out.println("Enter assertTheory2");
 		if (returnValue >= 0 ) {
-			assertEquals(target, testArray[returnValue]);
+			assertEquals(key, testArray[returnValue]);	//key, testArray[returnValue]
 		}
 	}
 	
-	public boolean arrayContainsTarget(int[] testArray, int target) {
+	public boolean arrayContainsTarget(int[] testArray, int key) {
 		System.out.println("Enter arrayContainsTarget");
 		for (int i = 0; i < testArray.length; i++) {
-			if (testArray[i] == target) {
+			if (testArray[i] == key) {
 				System.out.println("Enter arrayContainsTarget = TRUE");
 				return true;
 			}
@@ -118,20 +125,6 @@ public class BinarySearchTestTheories {
 		
 	}
 	
-	protected int binarySearch(int[] a, int key) {
-		return BinarySearch.binarySearch(a, key);
-	}
-	
-	protected int calculateMidpointContainingBug(int low, int high) {
-		return BinarySearch.calculateMidpointContainingBug(low, high);
-	}
-	
-	protected int calculateMidpointFixSubtractLowFromHigh(int low, int high) {
-		return BinarySearch.calculateMidpointFixSubtractLowFromHigh(low, high);
-	}
-	
-	protected int calculateMidpointFixShiftSignBit(int low, int high) {
-		return BinarySearch.calculateMidpointFixShiftSignBit(low, high);
-	}
+
 	
 }
