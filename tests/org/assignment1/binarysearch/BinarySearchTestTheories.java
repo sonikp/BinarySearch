@@ -26,9 +26,9 @@ import java.util.Random;
 public class BinarySearchTestTheories {
 	
 	Random rand;
-	int maxArraySize = 100; // Integer.MAX_VALUE / 2;
-	int maxValue = 100; // Integer.MAX_VALUE;
-	int experiments = 10;	// 1000
+	int maxArraySize = Integer.MAX_VALUE / 2 ;			// 100; // Integer.MAX_VALUE / 2;
+	int maxValue = Integer.MAX_VALUE; // 100; // Integer.MAX_VALUE;
+	int experiments = 1;	// 1000
 	int[] testArray;
 	int key;
 	int returnValue;
@@ -53,7 +53,11 @@ public class BinarySearchTestTheories {
 		System.out.println("Starting.....");
 		System.out.println("ArraySize: " + maxArraySize);
 
-		
+		/**
+		 * Runs the tests a specified number of times. Call BinarySearch 
+		 * with the randomArray and a key value. Implement the assertEquals or the assertFalse
+		 * to test for the different conditions
+		 */
 		while (experiments > 0) {
 			System.out.println();
 			testArray = generateRandomSortedArray(maxArraySize, maxValue);
@@ -110,7 +114,12 @@ public class BinarySearchTestTheories {
 	}
 
 
-	
+	/**
+	 * Generates random arrays, based on maxArraySize and maxValue.
+	 * @param maxArraySize
+	 * @param maxValue
+	 * @return randomArray
+	 */
 	public int[] generateRandomSortedArray(int maxArraySize, int maxValue) {
 		int arraySize = 1 + rand.nextInt(maxArraySize);
 		int[] randomArray = new int[arraySize];
