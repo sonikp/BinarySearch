@@ -29,7 +29,7 @@ public class BinarySearchTests {
 	 */
 	@Before
 	public void setUp() {
-		System.out.println("No items to set up before testing begins");
+		System.out.println();	//"No items to set up before testing begins"
 	}
 	
 	/**
