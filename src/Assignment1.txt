@@ -1,7 +1,7 @@
-This code is from the java.util.Collections binary search method. Identify the error, write a JUnit test 
-to expose the error, and correct the code so that the test passes. You may need to experiment with 
-heap size parameters in order to get your test code to run, and you may not be able to get your test 
-code to run correctly.
+07/26/2017
+This code is from the java.util.Collections binary search method. Identify the error, write a JUnit test to expose 
+the error, and correct the code so that the test passes. You may need to experiment with heap size parameters 
+in order to get your test code to run, and you may not be able to get your test code to run correctly.
 
 Rather than trying to use the Collections class, you should build a test class to hold this method.
 Hint: Try a Google search for "binary search bug"  
@@ -9,14 +9,14 @@ Hint: Try a Google search for "binary search bug"
 Submit your Java JUnit text, and an explanation of what the error is in the comments.    
 
       public static int binarySearch(int[] a, int key) {
-          int low = 0;
-          int high = a.length - 1;
- 
-          while (low <= high) {
-              int mid = (low + high) / 2;
-              int midVal = a[mid];
- 
-              if (midVal < key)
+         int low = 0;
+         int high = a.length - 1;
+
+         while (low <= high) {
+             int mid = (low + high) / 2;
+             int midVal = a[mid];
+
+             if (midVal < key)
                  low = mid + 1;
              else if (midVal > key)
                  high = mid - 1;
@@ -27,25 +27,14 @@ Submit your Java JUnit text, and an explanation of what the error is in the comm
      }
 
 
-Hints from class:
-
-- experiment with heapsize parameters <= hint
-- look into integer overflow
-  
-  
-- test for min/max/mid value
-- test boundary: 1st, last, mid
-- test midpoint test
-  
-- sum overflow that happens
-- calculate midpoint given high/low
-- test boundary with size = 1
-- test empty array
-- test basic smoke test: binary search, assert = to find key
-  
-- problem has to do with midpoint high + low / 2
-  
- - test for exceptions
-
 Research:
 https://research.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
+
+Assignment Results:
+calculate maximum size for memory needed:
+
+2,147,483,647 * 4 bytes = 8.58993459 gigabytes
+
+Increased memory size to 
+-Xmx12000m => MAX
+-Xms4096m => initial size

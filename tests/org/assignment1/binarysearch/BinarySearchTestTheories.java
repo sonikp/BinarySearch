@@ -26,9 +26,9 @@ import java.util.Random;
 public class BinarySearchTestTheories {
 	
 	Random rand;
-	int maxArraySize = Integer.MAX_VALUE / 2 ;			// 100; // Integer.MAX_VALUE / 2;
-	int maxValue = Integer.MAX_VALUE; // 100; // Integer.MAX_VALUE;
-	int experiments = 1;	// 1000
+	int maxArraySize = Integer.MAX_VALUE;			// 100; // Integer.MAX_VALUE / 2;
+	int maxValue = Integer.MAX_VALUE; 				// 100; // Integer.MAX_VALUE;
+	int experiments = 1;			// can run a number of test scenario's but with large arrays runs out of memory
 	int[] testArray;
 	int key;
 	int returnValue;
@@ -51,7 +51,6 @@ public class BinarySearchTestTheories {
 	@Test
 	public void testTheories() throws Exception {
 		System.out.println("Starting.....");
-		System.out.println("ArraySize: " + maxArraySize);
 
 		/**
 		 * Runs the tests a specified number of times. Call BinarySearch 
@@ -121,7 +120,8 @@ public class BinarySearchTestTheories {
 	 * @return randomArray
 	 */
 	public int[] generateRandomSortedArray(int maxArraySize, int maxValue) {
-		int arraySize = 1 + rand.nextInt(maxArraySize);
+		int arraySize = rand.nextInt(maxArraySize);	//1 + rand.nextInt(maxArraySize)
+		System.out.println("arraySize: " + arraySize + "\n");
 		int[] randomArray = new int[arraySize];
 		for (int i = 0; i < arraySize; i++) {
 			randomArray[i] = rand.nextInt(maxValue);
